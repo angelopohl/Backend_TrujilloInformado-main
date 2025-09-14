@@ -2,10 +2,12 @@ package com.segat.trujilloinformado.model.dto;
 
 import java.io.Serializable;
 import java.util.List;
+
 import org.springframework.web.multipart.MultipartFile;
+
 import com.segat.trujilloinformado.model.enums.EstadoReporte;
 import com.segat.trujilloinformado.model.enums.TipoProblema;
-import lombok.AllArgsConstructor;
+
 import lombok.Builder;
 import lombok.Data;
 

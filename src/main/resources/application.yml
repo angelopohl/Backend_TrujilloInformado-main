@@ -31,6 +31,8 @@ logging:
   pattern:
     console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
 
+web: java -jar target/TrujilloInformado-0.0.1-SNAPSHOT.jar
+
 server:
   port: 8080
   servlet:

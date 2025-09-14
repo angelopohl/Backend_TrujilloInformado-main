@@ -7,7 +7,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.antlr.v4.runtime.misc.NotNull;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
@@ -19,6 +18,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Reporte {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -38,4 +38,8 @@ public class Reporte {
     @CreationTimestamp
     @Column(name = "fecha_creacion", nullable = false, updatable = false)
     private LocalDateTime fechaCreacion;
+
+    @Lob  // Indica que la columna es de tipo blob (para almacenar los datos binarios)
+    @Column(name = "imagen")
+    private byte[] imagen;  // Cambio de String a byte[]
 }

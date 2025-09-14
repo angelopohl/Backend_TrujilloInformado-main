@@ -3,20 +3,19 @@ spring:
     name: limpieza-publica-api
 
   datasource:
-    url: jdbc:h2:mem:testdb
-    driver-class-name: org.h2.Driver
-    username: sa
-    password:
+    url: jdbc:postgresql://localhost:5432/segat  # Conexión a PostgreSQL
+    driver-class-name: org.postgresql.Driver  # Para PostgreSQL
+    username: postgres  # Usuario de PostgreSQL
+    password: 27012007  # Contraseña de PostgreSQL
 
   h2:
     console:
-      enabled: true
-      path: /h2-console
+      enabled: false  # Deshabilita la consola de H2 si no la necesitas
 
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
+    database-platform: org.hibernate.dialect.PostgreSQLDialect  # Dialecto para PostgreSQL
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update  # O 'validate' si no quieres que Hibernate modifique la DB
     show-sql: true
     properties:
       hibernate:
@@ -36,10 +35,3 @@ server:
   port: 8080
   servlet:
     context-path: /
-
-springdoc:
-  api-docs:
-    path: /api-docs
-  swagger-ui:
-    path: /swagger-ui.html
-    operations-sorter: method

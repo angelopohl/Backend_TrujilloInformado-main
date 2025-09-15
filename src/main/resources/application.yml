@@ -3,19 +3,15 @@ spring:
     name: limpieza-publica-api
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/segat  # Conexión a PostgreSQL
-    driver-class-name: org.postgresql.Driver  # Para PostgreSQL
-    username: postgres  # Usuario de PostgreSQL
-    password: 27012007  # Contraseña de PostgreSQL
-
-  h2:
-    console:
-      enabled: false  # Deshabilita la consola de H2 si no la necesitas
+    url: jdbc:postgresql://dpg-d33m0vqdbo4c73bb2720-a.oregon-postgres.render.com/segat
+    driver-class-name: org.postgresql.Driver
+    username: segat_user
+    password: fSIpvwutmAsrmoaqoMbuvQEr8V1n9BWa
 
   jpa:
-    database-platform: org.hibernate.dialect.PostgreSQLDialect  # Dialecto para PostgreSQL
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
-      ddl-auto: update  # O 'validate' si no quieres que Hibernate modifique la DB
+      ddl-auto: update
     show-sql: true
     properties:
       hibernate:
@@ -31,9 +27,7 @@ logging:
   pattern:
     console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
 
-web: java -jar target/TrujilloInformado-0.0.1-SNAPSHOT.jar
-
 server:
-  port: 8080
+  port: ${PORT:8080}
   servlet:
     context-path: /
